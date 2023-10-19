@@ -1,0 +1,6 @@
+(library
+ (libraries base stdio ninety_nine_problems)
+ (inline_tests)
+ (preprocess
+  (pps ppx_expect))
+ (name ninety_nine_problems_test))
