@@ -7,7 +7,7 @@ let print_list = function
             List.iter (fun x -> print_string (";"^x)) l;
             print_string "]";;
 
-
+(* 
 let () = pack ["a";"a";"a";"a";"b";"c";"c";"a";"a";"d";"e";"e";"e";"e"]
   |> List.iter print_list ;
   print_newline ();;
@@ -16,5 +16,6 @@ let () = pack ["a";"a";"a";"a";"b";"c";"c";"a";"a";"d";"e";"e";"e";"e"]
 let () = encode2 ["a"; "a"; "a"; "a"; "b"; "c"; "c"; "a"; "a"; "d"; "e"; "e"; "e"; "e"] |> List.iter (fun item ->
     match item with
     | One e -> print_string ("(" ^  e ^ ", " ^ ")")
-    | Many (c, e) -> print_string ("(" ^ string_of_int c ^ ", " ^ e ^ ")"));;
-  
+    | Many (c, e) -> print_string ("(" ^ string_of_int c ^ ", " ^ e ^ ")"));; *)
+
+let () = decode2 [Many (4, "a"); One "b"; Many (2, "c"); Many (2, "a"); One "d"; Many (4, "e")] |> print_list |> print_newline;;

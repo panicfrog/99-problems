@@ -83,6 +83,8 @@ let encode = function
     List.rev @@ aux h 1 [] t
 ;;
 
+
+(* 11. Modified run-length encoding. (easy) *)
 type 'a rle =
     | One of 'a
     | Many of int * 'a
@@ -96,3 +98,31 @@ let encode2 = function
     | h :: t -> if h = cur then aux cur (count + 1) acc t else aux h 1 (acc @ [f cur count]) t in
   aux h 1 [] t
 ;;
+
+(* 12. Decode a run-length encoded list. (medium) *)
+let decode l =  
+    let transfer  =  function 
+      | One e -> [e]
+      | Many (c, e) -> 
+        let rec taux e c acc = if c = 0 then acc else taux e (c - 1) (e :: acc ) in
+        taux e c [] in
+    List.map transfer l |> List.flatten
+;;
+  
+let decode2 = function
+| [] -> []
+| h :: t ->
+    let rec aux cur count acc = function 
+    | [] -> if count = 0 then acc else aux cur (count - 1) (cur :: acc) []
+    | h :: t -> 
+      if count = 0 then
+        match h with 
+        | One e -> aux e 1 acc t
+        | Many (c, e) -> aux e c acc t
+      else 
+        aux cur (count - 1) (cur :: acc) (h :: t) in
+    match h with 
+    | One e -> List.rev @@ aux e 1 [] t
+    | Many (c, e) -> List.rev @@ aux e c [] t
+;;
+    
