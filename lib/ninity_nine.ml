@@ -126,4 +126,12 @@ let decode2 = function
     | One e -> List.rev @@ aux e 1 [] t
     | Many (c, e) -> List.rev @@ aux e c [] t
 ;;
-    
+
+(* 14. Duplicate the elements of a list. (easy) *)
+let duplicate = function
+  | [] -> []
+  | h :: t -> 
+    let rec aux acc = function 
+      | [] -> acc
+      | h :: t -> aux (h :: h :: acc) t in
+    List.rev @@ aux [h;h;] t
