@@ -109,6 +109,7 @@ let decode l =
     List.map transfer l |> List.flatten
 ;;
   
+(* 13. Run-length encoding of a list (direct solution). (medium) *)
 let decode2 = function
 | [] -> []
 | h :: t ->
