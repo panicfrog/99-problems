@@ -135,3 +135,13 @@ let duplicate = function
       | [] -> acc
       | h :: t -> aux (h :: h :: acc) t in
     List.rev @@ aux [h;h;] t
+;;
+
+(* 15. Replicate the elements of a list a given number of times. (medium) *)
+let replicate l times = 
+  let rep c e = 
+    let rec aux e c acc = if c = 0 then acc else aux e (c - 1) (e :: acc ) in
+    aux e c [] in
+  List.map (fun i -> rep times i) l |> List.flatten
+;;
+  

@@ -41,3 +41,5 @@ let%test "[12. decode]" = decode [Many (4, "a"); One "b"; Many (2, "c"); Many (2
 let%test "[13. decode2]" = decode2 [Many (4, "a"); One "b"; Many (2, "c"); Many (2, "a"); One "d"; Many (4, "e")] = ["a"; "a"; "a"; "a"; "b"; "c"; "c"; "a"; "a"; "d"; "e"; "e"; "e"; "e"];;
 
 let%test "[14. duplicate]" = duplicate ["a";"b";"c";"c";"d"] = ["a"; "a"; "b"; "b"; "c"; "c"; "c"; "c"; "d"; "d"];;
+
+let%test "[15. replicate]" = replicate ["a"; "b"; "c"] 3 = ["a"; "a"; "a"; "b"; "b"; "b"; "c"; "c"; "c"];;
