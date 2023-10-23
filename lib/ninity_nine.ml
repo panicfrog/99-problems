@@ -82,3 +82,17 @@ let encode = function
     | h :: t -> if h = cur then aux cur (cc + 1) acc t else aux h 1 ((cc, cur) :: acc) t in
     List.rev @@ aux h 1 [] t
 ;;
+
+type 'a rle =
+    | One of 'a
+    | Many of int * 'a
+;;
+let encode2 = function 
+  | [] -> []
+  | h :: t -> 
+    let f e c = if c = 1 then One e else Many (c, e) in
+    let rec aux cur count acc = function 
+    | [] -> acc @ [f cur count]
+    | h :: t -> if h = cur then aux cur (count + 1) acc t else aux h 1 (acc @ [f cur count]) t in
+  aux h 1 [] t
+;;
