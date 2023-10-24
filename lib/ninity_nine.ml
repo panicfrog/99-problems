@@ -151,13 +151,20 @@ let drop l n =
     | [] -> acc
     | h :: t -> if i mod n = 0 then aux (i + 1) acc t else aux (i + 1) (h :: acc) t in
   List.rev @@ aux 1 [] l 
+;;
 
-  (* 17. Split a list into two parts; the length of the first part is given. (easy) *)
-  let split l n = 
-    let rec aux i acc = function 
-    | [] -> (List.rev acc , [])
-    | h :: t -> if i = n then (List.rev acc , h :: t) else aux (i + 1) (h :: acc) t in
-    aux 0 [] l
+(* 17. Split a list into two parts; the length of the first part is given. (easy) *)
+let split l n = 
+  let rec aux i acc = function 
+  | [] -> (List.rev acc , [])
+  | h :: t -> if i = n then (List.rev acc , h :: t) else aux (i + 1) (h :: acc) t in
+  aux 0 [] l
+;;
 
-
-  
+(* 18. Extract a slice from a list. (medium) *)
+let slice l i k = 
+  let rec aux idx acc = function 
+  | [] -> acc
+  | h :: t -> if idx >= i && idx <= k then aux (idx + 1) (h :: acc) t else aux (idx + 1) acc t in
+  List.rev @@ aux 0 [] l
+;;

@@ -20,7 +20,8 @@ let () = encode2 ["a"; "a"; "a"; "a"; "b"; "c"; "c"; "a"; "a"; "d"; "e"; "e"; "e
 
 (* let () = decode2 [Many (4, "a"); One "b"; Many (2, "c"); Many (2, "a"); One "d"; Many (4, "e")] |> print_list |> print_newline;; *)
 
-let () = drop ["a";"b";"c";"d";"e";"f";"g";"h";"i";"j"] 3 |> print_list |> print_newline;;
+(* let () = drop ["a";"b";"c";"d";"e";"f";"g";"h";"i";"j"] 3 |> print_list |> print_newline;; *)
+let () = slice ["a"; "b"; "c"; "d"; "e"; "f"; "g"; "h"; "i"; "j"] 2 6 |> print_list |> print_newline;;
 
 let l1 = [1;2;]
 let l2 = 3::l1

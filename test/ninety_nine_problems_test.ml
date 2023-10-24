@@ -48,3 +48,5 @@ let%test "[16. drop]" = drop ["a"; "b"; "c"; "d"; "e"; "f"; "g"; "h"; "i"; "j"] 
 
 let%test "[17. split]" = split ["a"; "b"; "c"; "d"; "e"; "f"; "g"; "h"; "i"; "j"] 3 = (["a"; "b"; "c"], ["d"; "e"; "f"; "g"; "h"; "i"; "j"]);;
 let%test "[17. split 2]" = split ["a"; "b"; "c"; "d"] 5 = (["a"; "b"; "c"; "d"], []);;
+
+let%test "[18. slice]" = slice ["a"; "b"; "c"; "d"; "e"; "f"; "g"; "h"; "i"; "j"] 2 6 = ["c"; "d"; "e"; "f"; "g"];;
