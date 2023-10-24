@@ -43,3 +43,8 @@ let%test "[13. decode2]" = decode2 [Many (4, "a"); One "b"; Many (2, "c"); Many 
 let%test "[14. duplicate]" = duplicate ["a";"b";"c";"c";"d"] = ["a"; "a"; "b"; "b"; "c"; "c"; "c"; "c"; "d"; "d"];;
 
 let%test "[15. replicate]" = replicate ["a"; "b"; "c"] 3 = ["a"; "a"; "a"; "b"; "b"; "b"; "c"; "c"; "c"];;
+
+let%test "[16. drop]" = drop ["a"; "b"; "c"; "d"; "e"; "f"; "g"; "h"; "i"; "j"] 3 = ["a"; "b"; "d"; "e"; "g"; "h"; "j"];;
+
+let%test "[17. split]" = split ["a"; "b"; "c"; "d"; "e"; "f"; "g"; "h"; "i"; "j"] 3 = (["a"; "b"; "c"], ["d"; "e"; "f"; "g"; "h"; "i"; "j"]);;
+let%test "[17. split 2]" = split ["a"; "b"; "c"; "d"] 5 = (["a"; "b"; "c"; "d"], []);;
