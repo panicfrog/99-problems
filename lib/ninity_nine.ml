@@ -144,4 +144,12 @@ let replicate l times =
     aux e c [] in
   List.map (fun i -> rep times i) l |> List.flatten
 ;;
+
+(* 16. Drop every N'th element from a list. (medium) *)
+let drop l n = 
+  let rec aux i acc = function 
+    | [] -> acc
+    | h :: t -> if i = n then aux (i + 1) acc t else aux (i + 1) (h :: acc) t in
+  List.rev @@ aux 1 [] l 
+
   
