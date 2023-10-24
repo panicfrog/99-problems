@@ -50,3 +50,6 @@ let%test "[17. split]" = split ["a"; "b"; "c"; "d"; "e"; "f"; "g"; "h"; "i"; "j"
 let%test "[17. split 2]" = split ["a"; "b"; "c"; "d"] 5 = (["a"; "b"; "c"; "d"], []);;
 
 let%test "[18. slice]" = slice ["a"; "b"; "c"; "d"; "e"; "f"; "g"; "h"; "i"; "j"] 2 6 = ["c"; "d"; "e"; "f"; "g"];;
+
+let%test "[19. rotate]" = rotate ["a"; "b"; "c"; "d"; "e"; "f"; "g"; "h"] 3 = ["d"; "e"; "f"; "g"; "h"; "a"; "b"; "c"];;
+let%test "[19. rotate]" = rotate ["a"; "b"; "c"; "d"; "e"; "f"; "g"; "h"] (-2) = ["g"; "h"; "a"; "b"; "c"; "d"; "e"; "f"];;

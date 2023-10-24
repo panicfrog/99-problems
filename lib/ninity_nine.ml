@@ -168,3 +168,14 @@ let slice l i k =
   | h :: t -> if idx >= i && idx <= k then aux (idx + 1) (h :: acc) t else aux (idx + 1) acc t in
   List.rev @@ aux 0 [] l
 ;;
+
+(* 19. Rotate a list N places to the left. (medium) *)
+let rotate l n = 
+  let nth = if n >= 0 then n else (-n) in 
+  let rec aux idx p s = function 
+  | [] -> (List.rev p) @ (List.rev s)
+  | h :: t -> if idx >= nth then aux (idx + 1) (h :: p) s t else aux (idx + 1) p (h :: s) t in 
+  if n >= 0 then 
+    aux 0 [] [] l 
+  else List.rev @@ aux 0 [] []  (List.rev l)
+;;
