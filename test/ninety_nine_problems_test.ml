@@ -59,3 +59,6 @@ let%test  "[20. remove_at]" = remove_at 1 ["a"; "b"; "c"; "d"] = ["a"; "c"; "d"]
 let%test "[21. insert_at]" = insert_at "alfa" 1 ["a"; "b"; "c"; "d"] = ["a"; "alfa"; "b"; "c"; "d"];;
 let%test "[21. insert_at 2]" = insert_at "alfa" 3 ["a"; "b"; "c"; "d"] = ["a"; "b"; "c"; "alfa"; "d"];;
 let%test "[21. insert_at 3]" = insert_at "alfa" 4 ["a"; "b"; "c"; "d"] = ["a"; "b"; "c"; "d"; "alfa"];;
+
+let%test "[22. range]" = range 4 9 = [4; 5; 6; 7; 8; 9];;
+let%test "[22. range]" = range 9 4 = [9; 8; 7; 6; 5; 4];;

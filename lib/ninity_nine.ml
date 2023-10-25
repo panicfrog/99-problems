@@ -195,3 +195,12 @@ let insert_at e n l =
   | h :: t -> if idx = n then List.rev (h :: e :: acc ) @ t else aux (idx + 1) (h :: acc) t in
   aux 0 [] l
 ;;
+
+(* 22. Create a list containing all integers within a given range. (easy) *)
+let range f s = 
+  if f = s then [f]
+  else
+    let inc = if f < s then 1 else -1 in
+    let rec aux cur acc = if cur = s then cur::acc else aux (cur + inc) (cur :: acc) in
+    List.rev @@ aux f []
+;;
