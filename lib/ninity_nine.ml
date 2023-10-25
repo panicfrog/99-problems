@@ -189,12 +189,15 @@ let remove_at n l =
 ;;
 
 (* 21. Insert an element at a given position into a list. (easy) *)
-let insert_at e n l = 
+(* let insert_at e n l = 
   let rec aux idx acc = function 
   | [] -> List.rev @@ if idx = n then e::acc  else acc
   | h :: t -> if idx = n then List.rev (h :: e :: acc ) @ t else aux (idx + 1) (h :: acc) t in
   aux 0 [] l
-;;
+;; *)
+let rec insert_at e n = function 
+  | [] -> [e]
+  | h :: t as l -> if n = 0 then e :: l else h :: insert_at e (n - 1) t
 
 (* 22. Create a list containing all integers within a given range. (easy) *)
 let range f s = 
@@ -203,4 +206,16 @@ let range f s =
     let inc = if f < s then 1 else -1 in
     let rec aux cur acc = if cur = s then cur::acc else aux (cur + inc) (cur :: acc) in
     List.rev @@ aux f []
+;;
+
+(* 23. Extract a given number of randomly selected elements from a list. (medium) *)
+let rand_select l n = 
+  let len = List.length l in
+  let rec aux c acc =  
+    if c = n then acc 
+    else
+    let idx = Random.int len in
+    let e = List.nth l idx in
+    aux (c + 1) (e :: acc)  in
+  List.rev @@ aux 0 [] 
 ;;
