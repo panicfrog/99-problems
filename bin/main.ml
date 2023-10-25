@@ -25,6 +25,7 @@ let () = encode2 ["a"; "a"; "a"; "a"; "b"; "c"; "c"; "a"; "a"; "d"; "e"; "e"; "e
 (* let () = rotate ["a"; "b"; "c"; "d"; "e"; "f"; "g"; "h"] (-2) |> print_list |> print_newline;; *)
 (* let () =  insert_at "alfa" 4 ["a"; "b"; "c"; "d"] |> print_list |> print_newline;; *)
 (* let () = range 4 9 |> List.iter (fun x -> print_int x) |> print_newline;; *)
-let () = rand_select ["a"; "b"; "c"; "d"; "e"; "f"; "g"; "h"] 3 |> List.iter (fun v -> print_string v);;
+(* let () = rand_select ["a"; "b"; "c"; "d"; "e"; "f"; "g"; "h"] 3 |> List.iter (fun v -> print_string v);; *)
+(* let () = lotto_select 6 49 |> List.iter (fun v -> print_int v; print_string ";" );; *)
 
 

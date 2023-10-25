@@ -234,3 +234,13 @@ let rand_select l n =
   let len = List.length l in
   aux (min n len) [] l len
   ;;
+
+(* 24. Lotto: Draw N different random numbers from the set 1..M. (easy) *)
+let lotto_select n m = 
+  let rec aux c acc =
+    if c = 0 then acc 
+    else 
+      let e = Random.int m in
+      if List.mem e acc then aux c acc else aux (c - 1) (e :: acc) in
+  aux n []
+;;  
