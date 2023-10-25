@@ -187,3 +187,11 @@ let remove_at n l =
   | h :: t -> if idx = n then aux (idx + 1) acc t else aux (idx + 1) (h :: acc) t in 
   List.rev @@ aux 0 [] l
 ;;
+
+(* 21. Insert an element at a given position into a list. (easy) *)
+let insert_at e n l = 
+  let rec aux idx acc = function 
+  | [] -> List.rev @@ if idx = n then e::acc  else acc
+  | h :: t -> if idx = n then List.rev (h :: e :: acc ) @ t else aux (idx + 1) (h :: acc) t in
+  aux 0 [] l
+;;

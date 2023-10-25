@@ -22,5 +22,7 @@ let () = encode2 ["a"; "a"; "a"; "a"; "b"; "c"; "c"; "a"; "a"; "d"; "e"; "e"; "e
 
 (* let () = drop ["a";"b";"c";"d";"e";"f";"g";"h";"i";"j"] 3 |> print_list |> print_newline;; *)
 (* let () = slice ["a"; "b"; "c"; "d"; "e"; "f"; "g"; "h"; "i"; "j"] 2 6 |> print_list |> print_newline;; *)
-let () = rotate ["a"; "b"; "c"; "d"; "e"; "f"; "g"; "h"] (-2) |> print_list |> print_newline;;
+(* let () = rotate ["a"; "b"; "c"; "d"; "e"; "f"; "g"; "h"] (-2) |> print_list |> print_newline;; *)
+let () =  insert_at "alfa" 4 ["a"; "b"; "c"; "d"] |> print_list |> print_newline;;
+
 

@@ -55,3 +55,7 @@ let%test "[19. rotate]" = rotate ["a"; "b"; "c"; "d"; "e"; "f"; "g"; "h"] 3 = ["
 let%test "[19. rotate]" = rotate ["a"; "b"; "c"; "d"; "e"; "f"; "g"; "h"] (-2) = ["g"; "h"; "a"; "b"; "c"; "d"; "e"; "f"];;
 
 let%test  "[20. remove_at]" = remove_at 1 ["a"; "b"; "c"; "d"] = ["a"; "c"; "d"];;
+
+let%test "[21. insert_at]" = insert_at "alfa" 1 ["a"; "b"; "c"; "d"] = ["a"; "alfa"; "b"; "c"; "d"];;
+let%test "[21. insert_at 2]" = insert_at "alfa" 3 ["a"; "b"; "c"; "d"] = ["a"; "b"; "c"; "alfa"; "d"];;
+let%test "[21. insert_at 3]" = insert_at "alfa" 4 ["a"; "b"; "c"; "d"] = ["a"; "b"; "c"; "d"; "alfa"];;
