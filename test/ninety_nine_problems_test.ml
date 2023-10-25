@@ -53,3 +53,5 @@ let%test "[18. slice]" = slice ["a"; "b"; "c"; "d"; "e"; "f"; "g"; "h"; "i"; "j"
 
 let%test "[19. rotate]" = rotate ["a"; "b"; "c"; "d"; "e"; "f"; "g"; "h"] 3 = ["d"; "e"; "f"; "g"; "h"; "a"; "b"; "c"];;
 let%test "[19. rotate]" = rotate ["a"; "b"; "c"; "d"; "e"; "f"; "g"; "h"] (-2) = ["g"; "h"; "a"; "b"; "c"; "d"; "e"; "f"];;
+
+let%test  "[20. remove_at]" = remove_at 1 ["a"; "b"; "c"; "d"] = ["a"; "c"; "d"];;

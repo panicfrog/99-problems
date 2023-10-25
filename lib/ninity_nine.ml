@@ -179,3 +179,11 @@ let rotate l n =
     aux 0 [] [] l 
   else List.rev @@ aux 0 [] []  (List.rev l)
 ;;
+
+(* 20. Remove the K'th element from a list. (easy) *)
+let remove_at n l = 
+  let rec aux idx acc = function 
+  | [] -> acc
+  | h :: t -> if idx = n then aux (idx + 1) acc t else aux (idx + 1) (h :: acc) t in 
+  List.rev @@ aux 0 [] l
+;;
