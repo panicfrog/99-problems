@@ -212,7 +212,7 @@ let range f s =
 ;;
 
 (* 23. Extract a given number of randomly selected elements from a list. (medium) *)
-let rand_select l n = 
+(* let rand_select l n = 
   let len = List.length l in
   let rec aux c acc =  
     if c = n then acc 
@@ -221,4 +221,16 @@ let rand_select l n =
     let e = List.nth l idx in
     aux (c + 1) (e :: acc)  in
   List.rev @@ aux 0 [] 
-;;
+;; *)
+let rand_select l n =
+  let rec extract acc n = function 
+    | [] -> raise Not_found
+    | h :: t -> if n = 0 then (h, acc @ t) else extract (h::acc) (n - 1) t in
+  let rand_extract l len = extract [] (Random.int len) l in
+  let rec aux n acc l len = 
+    if n = 0 then acc else 
+      let picked, rest = rand_extract l len in
+      aux (n - 1) (picked :: acc) rest (len - 1) in
+  let len = List.length l in
+  aux (min n len) [] l len
+  ;;
