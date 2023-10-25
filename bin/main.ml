@@ -1,11 +1,11 @@
 open Ninety_nine_problems.Ninity_nine;;
 
-(* let print_list = function 
+let print_list = function 
   [] -> print_string "[]";
   | e::l -> print_string "[";
             print_string e;
             List.iter (fun x -> print_string (";"^x)) l;
-            print_string "]";; *)
+            print_string "]";;
 
 (* 
 let () = pack ["a";"a";"a";"a";"b";"c";"c";"a";"a";"d";"e";"e";"e";"e"]
@@ -28,4 +28,4 @@ let () = encode2 ["a"; "a"; "a"; "a"; "b"; "c"; "c"; "a"; "a"; "d"; "e"; "e"; "e
 (* let () = rand_select ["a"; "b"; "c"; "d"; "e"; "f"; "g"; "h"] 3 |> List.iter (fun v -> print_string v);; *)
 (* let () = lotto_select 6 49 |> List.iter (fun v -> print_int v; print_string ";" );; *)
 
-
+let () = extract 3 ["a"; "b"; "c"; "d"] |> List.iter (fun v -> print_list v; print_string " ");;

@@ -244,3 +244,16 @@ let lotto_select n m =
       if List.mem e acc then aux c acc else aux (c - 1) (e :: acc) in
   aux n []
 ;;  
+
+(* 25. Generate a random permutation of the elements of a list. (easy) *) 
+(* TODO:  *)
+
+(* 26. Generate the combinations of K distinct objects chosen from the N elements of a list. (medium) *)
+let rec extract k list =
+  if k <= 0 then [[]]
+  else match list with
+    | [] -> []
+    | h :: tl ->
+      let with_h = List.map (fun l -> h :: l) (extract (k - 1) tl) in
+      let without_h = extract k tl in
+      with_h @ without_h;

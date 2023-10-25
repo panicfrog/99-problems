@@ -63,4 +63,4 @@ let%test "[21. insert_at 3]" = insert_at "alfa" 4 ["a"; "b"; "c"; "d"] = ["a"; "
 let%test "[22. range]" = range 4 9 = [4; 5; 6; 7; 8; 9];;
 let%test "[22. range]" = range 9 4 = [9; 8; 7; 6; 5; 4];;
 
-(* let%test "[23. rand_select]" = rand_select ["a"; "b"; "c"; "d"; "e"; "f"; "g"; "h"] 3 = ["e"; "d"; "g"];; *)
+let%test "[26. extract]" = extract 2 ["a"; "b"; "c"; "d"] = [["a"; "b"]; ["a"; "c"]; ["a"; "d"]; ["b"; "c"]; ["b"; "d"]; ["c"; "d"]];;
