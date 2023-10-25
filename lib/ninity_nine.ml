@@ -181,12 +181,15 @@ let rotate l n =
 ;;
 
 (* 20. Remove the K'th element from a list. (easy) *)
-let remove_at n l = 
+(* let remove_at n l = 
   let rec aux idx acc = function 
   | [] -> acc
   | h :: t -> if idx = n then aux (idx + 1) acc t else aux (idx + 1) (h :: acc) t in 
   List.rev @@ aux 0 [] l
-;;
+;; *)
+let rec remove_at n = function 
+  | [] -> []
+  | h :: t -> if n = 0 then t else h :: remove_at (n - 1) t
 
 (* 21. Insert an element at a given position into a list. (easy) *)
 (* let insert_at e n l = 
